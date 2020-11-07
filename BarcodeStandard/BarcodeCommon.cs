@@ -22,7 +22,14 @@ namespace BarcodeLib
         public void Error(string ErrorMessage)
         {
             this._Errors.Add(ErrorMessage);
-            throw new Exception(ErrorMessage);
+            throw new BarcodeException(ErrorMessage);
+        }
+
+        public void Error(string errorMessage, Exception ex)
+        {
+            this._Errors.Add(errorMessage);
+            this._Errors.Add(ex.Message);
+            throw new BarcodeException(errorMessage, ex);
         }
 
         internal static bool CheckNumericOnly(string Data)
@@ -30,4 +37,16 @@ namespace BarcodeLib
             return Regex.IsMatch(Data, @"^\d+$", RegexOptions.Compiled);
         }
     }//BarcodeVariables abstract class
+
+
+    [Serializable]
+    public class BarcodeException : Exception
+    {
+        public BarcodeException() { }
+        public BarcodeException(string message) : base(message) { }
+        public BarcodeException(string message, Exception inner) : base(message, inner) { }
+        protected BarcodeException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
 }//namespace

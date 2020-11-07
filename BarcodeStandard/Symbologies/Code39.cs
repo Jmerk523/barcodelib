@@ -69,12 +69,12 @@ namespace BarcodeLib.Symbologies
                     result += C39_Code[c].ToString();
                     result += "0";//whitespace
                 }//try
-                catch
+                catch (Exception ex)
                 {
                     if (_AllowExtended)
-                        Error("EC39-1: Invalid data.");
+                        Error("EC39-1: Invalid data.", ex);
                     else
-                        Error("EC39-1: Invalid data. (Try using Extended Code39)");
+                        Error("EC39-1: Invalid data. (Try using Extended Code39)", ex);
                 }//catch
             }//foreach
 

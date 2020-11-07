@@ -85,9 +85,9 @@ namespace BarcodeLib.Symbologies
                     iCheckSum += Convert.ToInt32(c);
                 }//foreach
             }//try
-            catch 
+            catch (Exception ex)
             {
-                Error("ETELEPEN-1: Invalid data when encoding ASCII");
+                Error("ETELEPEN-1: Invalid data when encoding ASCII", ex);
             }//catch
         }
         private void EncodeNumeric(string input, ref string output)
@@ -103,9 +103,9 @@ namespace BarcodeLib.Symbologies
                     iCheckSum += Int32.Parse(input.Substring(i, 2)) + 27;
                 }//for
             }//try
-            catch
+            catch (Exception ex)
             {
-                Error("ETELEPEN-2: Numeric encoding failed");
+                Error("ETELEPEN-2: Numeric encoding failed", ex);
             }//catch
         }
         private void EncodeSwitchMode(ref string output)

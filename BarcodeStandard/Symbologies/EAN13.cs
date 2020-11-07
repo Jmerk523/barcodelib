@@ -85,9 +85,9 @@ namespace BarcodeLib.Symbologies
                 {
                     _Country_Assigning_Manufacturer_Code = CountryCodes[twodigitCode].ToString();
                 }//try
-                catch
+                catch (Exception ex)
                 {
-                    Error("EEAN13-3: Country assigning manufacturer code not found.");
+                    Error("EEAN13-3: Country assigning manufacturer code not found.", ex);
                 }//catch 
             }//catch
             finally { CountryCodes.Clear(); }
@@ -264,9 +264,9 @@ namespace BarcodeLib.Symbologies
 
                 Raw_Data = RawDataHolder + cs.ToString()[0];
             }//try
-            catch
+            catch (Exception ex)
             {
-                Error("EEAN13-4: Error calculating check digit.");
+                Error("EEAN13-4: Error calculating check digit.", ex);
             }//catch
         }
 

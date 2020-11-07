@@ -229,7 +229,7 @@ namespace BarcodeLib.Symbologies
                     }//try
                     catch (Exception ex)
                     {
-                        Error("EC128-1: " + ex.Message);
+                        Error("EC128-1", ex);
                     }//catch
                 }//foreach                
 
@@ -415,7 +415,7 @@ namespace BarcodeLib.Symbologies
                 }//try
                 catch (Exception ex)
                 {
-                    Error("EC128-3: Could not insert start and code characters.\n Message: " + ex.Message);
+                    Error("EC128-3: Could not insert start and code characters.", ex);
                 }//catch
             }//else
         }

@@ -33,7 +33,10 @@ namespace BarcodeLib.Symbologies
             {
                 pattern = this.UPC_SUPP_2[Int32.Parse(Raw_Data.Trim()) % 4];
             }//try
-            catch { Error("EUPC-SUP2-3: Invalid Data. (Numeric only)"); }
+            catch (Exception ex)
+            {
+                Error("EUPC-SUP2-3: Invalid Data. (Numeric only)", ex);
+            }
 
             string result = "1011";
 

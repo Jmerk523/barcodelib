@@ -35,9 +35,9 @@ namespace BarcodeLib.Symbologies
                 {
                     result += C93_Code.Select("Character = '" + c.ToString() + "'")[0]["Encoding"].ToString();
                 }//try
-                catch
+                catch (Exception ex)
                 {
-                        Error("EC93-1: Invalid data.");
+                        Error("EC93-1: Invalid data.", ex);
                 }//catch
             }//foreach
 

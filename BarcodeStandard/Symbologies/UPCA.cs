@@ -68,9 +68,9 @@ namespace BarcodeLib.Symbologies
             {
                 _Country_Assigning_Manufacturer_Code = CountryCodes[twodigitCode].ToString();
             }//try
-            catch
+            catch (Exception ex)
             {
-                Error("EUPCA-3: Country assigning manufacturer code not found.");
+                Error("EUPCA-3: Country assigning manufacturer code not found.", ex);
             }//catch
             finally { CountryCodes.Clear(); }
 
@@ -251,9 +251,9 @@ namespace BarcodeLib.Symbologies
 
                 Raw_Data = RawDataHolder + cs.ToString()[0];
             }//try
-            catch
+            catch (Exception ex)
             {
-                Error("EUPCA-4: Error calculating check digit.");
+                Error("EUPCA-4: Error calculating check digit.", ex);
             }//catch
         }//CheckDigit
 

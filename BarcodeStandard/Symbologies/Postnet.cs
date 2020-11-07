@@ -48,7 +48,7 @@ namespace BarcodeLib.Symbologies
                 }//try
                 catch (Exception ex)
                 {
-                    Error("EPOSTNET-2: Invalid data. (Numeric only) --> " + ex.Message);
+                    Error("EPOSTNET-2: Invalid data. (Numeric only)", ex);
                 }//catch
             }//foreach
 
